@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <title>Document</title>
+    <!-- <script src="student.js"></script> -->
+</head>
+<body >
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title" >STUDENT PROFILE</h5>
+          <div id="i" >
+          </div> 
+          <!-- <p class="card-text"  >Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+          <a href="" class="card-link" >Edit Profile</a>
+          <a href="" class="card-link" >Delete Profile</a>
+        </div>
+      </div>
+
+      <script>
+        var i=1;
+        if(localStorage.length!==0)
+        {
+          var a=Object.keys(localStorage)
+          a.sort();
+          var t=Number(a[a.length-1])
+          i=t+1
+          console.log(i);
+          
+          //  console.log(a,typeof(a[0]));
+          for(j=0;j<a.length;j++)
+          {
+          var b=document.getElementById('i');
+          // b.id=i
+          var div=document.createElement('div')
+          b.appendChild(div)
+          div.id=i
+          var bod=document.getElementById('r')
+          //  b.id=i;
+          var obj=JSON.parse(localStorage.getItem(a[j]));
+
+         
+          var c=document.createElement('span');
+          var na=document.createElement('p');
+          na.id=i
+          na.innerText="NAME:";
+          c.appendChild(na)
+          c.innerHTML=obj.name;
+          na.appendChild(c);
+          div.appendChild(na);
+          
+             
+          var con=document.createElement('span')
+          var nan=document.createElement('p');
+          nan.id=i
+          nan.innerText="ROLL NO:";
+          con.appendChild(nan)
+          con.innerHTML=obj.roll;
+          nan.appendChild(con)
+          div.appendChild(nan)
+
+
+          var cont=document.createElement('span')
+          var nane=document.createElement('p');
+          nane.id=i
+          nane.innerText="CONTACT NO:";
+          cont.appendChild(nane);
+          cont.innerHTML=obj.contact;
+          nane.appendChild(cont)
+          div.appendChild(nane);
+          
+
+          var date=document.createElement('span')
+          var nanu=document.createElement('p');
+          nanu.id=i
+          nanu.innerText="DOB:";
+          date.appendChild(nanu);
+          date.innerHTML=obj.dob;
+          nanu.appendChild(date)
+          div.appendChild(nanu)
+
+
+        
+          var cou=document.createElement('span')
+          var nano=document.createElement('p');
+          nano.id=i
+          nano.innerText="COURSE:";
+          cou.appendChild(nano);
+          cou.innerHTML=obj.course;
+          nano.appendChild(cou);
+          div.appendChild(nano);   
+          
+          
+           a.id=i
+           i++;
+
+          }
+        }
+
+
+
+      </script>
+</body>
+</html>
